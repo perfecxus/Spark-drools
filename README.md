@@ -8,7 +8,7 @@ Drools Rule of a huge volume of data efficiently and in a performant way.
 
 To read more about, how we have achieved this, please read the blog:
 
-
+https://www.linkedin.com/pulse/developing-high-performance-drools-service-big-data-using-sinchan-/
 
 **Running in Local using IntelliJ**
 
