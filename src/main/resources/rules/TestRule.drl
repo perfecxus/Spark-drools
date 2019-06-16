@@ -1,0 +1,15 @@
+package rules
+
+import com.khusin.Garage
+import com.khusin.Action
+
+rule "rule1"
+    dialect "mvel"
+    when
+        vGarage: Garage( name == "testName")
+    then
+        Action vAction = new Action()
+        vAction.sms = "Hello World"
+        vAction.smsDetail = "Details goes here"
+        vGarage.action = vAction
+end

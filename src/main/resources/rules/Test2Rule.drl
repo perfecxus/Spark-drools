@@ -1,0 +1,17 @@
+package rules
+
+import com.khusin.RuleBeans.CaseWrapper
+import com.khusin.RuleBeans.LogStruct
+import com.khusin.RuleBeans.NewAction
+import java.util.List
+import function scala.collection.JavaConversions.seqAsJavaList
+
+rule "rule complex"
+    dialect "mvel"
+    when
+        vCaseWrapper: CaseWrapper( mobileNo == "90876546", vlogs: logs != null, vJavaLogs: seqAsJavaList(logs))
+        List( size() > 0) from collect(LogStruct(log != null) from vJavaLogs)
+    then
+        NewAction vAction = new NewAction("Hello World","Details goes here")
+        vCaseWrapper.action = vAction
+end
